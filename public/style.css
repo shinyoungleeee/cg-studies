@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Exo|Tinos);
+
+h1, h2, h3, h4, h5, h6, li {
+  font-family: 'Exo', sans-serif;
+}
+
+p {
+  font-family: 'Tinos', serif;
+}
+
+.top-bar {
+  margin-bottom: 50px;
+}
+
+#small-logo {
+  height: 50px;
+  margin-right: 5px;
+  filter: invert(100%);
+}
+
+#large-logo {
+  width: 50px;
+  margin-right: 5px;
+}
+
+.body-header {
+  margin-bottom: 20px;
+}
+
+.body-header img {
+  width: 100%;
+}
+
+.vertical-align-middle {
+  height: 50px;
+  vertical-align: middle;
+}
