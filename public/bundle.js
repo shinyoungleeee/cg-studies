@@ -25515,22 +25515,53 @@
 	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
-	          { id: 'logo', className: 'small-10 small-centered large-3 large-centered columns' },
-	          _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
+	          { className: 'small-11 small-centered columns' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'small-7 large-3 columns' },
+	              _react2.default.createElement(
+	                'div',
+	                { id: 'logo' },
+	                _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'header' },
+	              _react2.default.createElement(
+	                'h1',
+	                null,
+	                'CITYLIFE CG STUDIES'
+	              )
+	            )
+	          )
 	        )
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'row text-right' },
 	        _react2.default.createElement(
-	          'div',
-	          { id: 'header', className: 'small-centered columns' },
+	          _reactRouter.Link,
+	          { to: '/studies' },
 	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'CITYLIFE CG STUDIES'
+	            'button',
+	            { className: 'button studies-button' },
+	            'CONTINUE TO STUDIES'
 	          )
 	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'down-arrow' },
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('a', { className: 'fa fa-chevron-down fa-3x', href: '#letter' })
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -25538,7 +25569,7 @@
 	      { className: 'row' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'small-12 small-centered large-8 large-centered columns' },
+	        { id: 'letter', className: 'small-12 small-centered large-8 large-centered columns' },
 	        _react2.default.createElement(
 	          'h1',
 	          null,

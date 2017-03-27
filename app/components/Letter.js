@@ -6,18 +6,32 @@ const Letter = props => {
     <div>
       <div className="header-wrapper">
         <div className="row">
-          <div id="logo" className="small-10 small-centered large-3 large-centered columns">
-            <img src="images/logoletter_72dpi_forweb.png" alt="Citylife Logo"/>
+          <div className="small-11 small-centered columns">
+            <div className="row">
+              <div className="small-7 large-3 columns">
+                <div id="logo">
+                  <img src="images/logoletter_72dpi_forweb.png" alt="Citylife Logo"/>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div id="header">
+                <h1>CITYLIFE CG STUDIES</h1>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="row">
-          <div id="header" className="small-centered columns">
-            <h1>CITYLIFE CG STUDIES</h1>
-          </div>
+        <div className="row text-right">
+          <Link to={`/studies`}>
+            <button className="button studies-button">CONTINUE TO STUDIES</button>
+          </Link>
+        </div>
+        <div className="down-arrow">
+          <br/><a className="fa fa-chevron-down fa-3x" href="#letter"></a>
         </div>
       </div>
       <div className="row">
-        <div className="small-12 small-centered large-8 large-centered columns">
+        <div id="letter" className="small-12 small-centered large-8 large-centered columns">
           <h1>Dear Community Group Member,</h1>
           <p>Just recently, I passed out. I fainted. I lost consciousness and dropped to the floor. I was walking around my house and, the next thing I knew, I was waking up trying to figure out where I was. Now, before you get too freaked out, know that I’m ok. There is nothing seriously wrong with my health. Thank God!</p>
           <p>The thing that weirded me out the most was that I have recently been a bit healthier than I’ve ever been in my adult life. Lately, I’ve been on a mission to get my act together. God has been teaching me that I have to be a steward of the body he’s given me if I want to bring him glory and fully enjoy the life with which he’s blessed me.</p>
