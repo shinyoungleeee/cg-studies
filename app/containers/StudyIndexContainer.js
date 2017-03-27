@@ -6,7 +6,7 @@ class StudyIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      study: {}
+      studies: []
     }
   }
 

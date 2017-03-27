@@ -46,6 +46,9 @@ const Letter = props => {
           <p>Justin Ruddy</p>
         </div>
       </div>
+      <div>
+        Footer
+      </div>
     </div>
   )
 }

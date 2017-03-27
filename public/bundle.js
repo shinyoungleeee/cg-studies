@@ -25647,6 +25647,11 @@
 	          'Justin Ruddy'
 	        )
 	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      'Footer'
 	    )
 	  );
 	};
@@ -25898,7 +25903,7 @@
 	    var _this = _possibleConstructorReturn(this, (StudyIndexContainer.__proto__ || Object.getPrototypeOf(StudyIndexContainer)).call(this, props));
 
 	    _this.state = {
-	      study: {}
+	      studies: []
 	    };
 	    return _this;
 	  }
