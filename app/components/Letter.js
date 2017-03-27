@@ -3,10 +3,20 @@ import { Link } from 'react-router';
 
 const Letter = props => {
   return(
-      <div className="row">
-        <div className="small-3 small-centered columns body-header">
-          <img src="images/logoletter_72dpi_forweb.png" alt="Citylife Logo"/>
+    <div>
+      <div className="header-wrapper">
+        <div className="row">
+          <div id="logo" className="small-10 small-centered large-3 large-centered columns">
+            <img src="images/logoletter_72dpi_forweb.png" alt="Citylife Logo"/>
+          </div>
         </div>
+        <div className="row">
+          <div id="header" className="small-centered columns">
+            <h1>CITYLIFE CG STUDIES</h1>
+          </div>
+        </div>
+      </div>
+      <div className="row">
         <div className="small-12 small-centered large-8 large-centered columns">
           <h1>Dear Community Group Member,</h1>
           <p>Just recently, I passed out. I fainted. I lost consciousness and dropped to the floor. I was walking around my house and, the next thing I knew, I was waking up trying to figure out where I was. Now, before you get too freaked out, know that I’m ok. There is nothing seriously wrong with my health. Thank God!</p>
@@ -22,7 +32,19 @@ const Letter = props => {
           <p>Justin Ruddy</p>
         </div>
       </div>
+    </div>
   )
 }
 
 export default Letter;
+
+// <ul className="dropdown menu" data-dropdown-menu>
+//   <li><Link to={`/`}>HOME</Link></li>
+//   <li>
+//     <a href="#">STUDIES</a>
+//     <ul className="menu vertical">
+//       <li><Link to={`/studies/1`}>MARCH STUDY 1</Link></li>
+//       <li><Link to={`/studies/2`}>MARCH STUDY 2</Link></li>
+//     </ul>
+//   </li>
+// </ul>

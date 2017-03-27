@@ -20291,6 +20291,10 @@
 
 	var _Letter2 = _interopRequireDefault(_Letter);
 
+	var _StudyIndexContainer = __webpack_require__(229);
+
+	var _StudyIndexContainer2 = _interopRequireDefault(_StudyIndexContainer);
+
 	var _StudyShowContainer = __webpack_require__(226);
 
 	var _StudyShowContainer2 = _interopRequireDefault(_StudyShowContainer);
@@ -20321,10 +20325,11 @@
 	      return _react2.default.createElement(
 	        _reactRouter.Router,
 	        { history: _reactRouter.browserHistory },
+	        _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Letter2.default }),
 	        _react2.default.createElement(
 	          _reactRouter.Route,
-	          { path: '/', component: _Dashboard2.default },
-	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _Letter2.default }),
+	          { path: '/studies', component: _Dashboard2.default },
+	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _StudyIndexContainer2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'studies/:id', component: _StudyShowContainer2.default })
 	        )
 	      );
@@ -25419,152 +25424,51 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'row show-for-small-only' },
+	          { className: 'header text-center' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'title-bar', 'data-responsive-toggle': 'top-menu' },
-	            _react2.default.createElement('img', { id: 'small-logo', src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' }),
-	            _react2.default.createElement('button', { className: 'menu-icon', type: 'button', 'data-toggle': 'top-menu' }),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'title-bar-title' },
-	              'Menu'
-	            )
+	            { id: 'logo' },
+	            _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'top-bar', id: 'top-menu' },
+	            'ul',
+	            { className: 'dropdown menu', 'data-dropdown-menu': true },
 	            _react2.default.createElement(
-	              'ul',
-	              { className: 'vertical menu', 'data-accordion-menu': true },
+	              'li',
+	              null,
 	              _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/' },
-	                  'HOME'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                  'a',
-	                  { href: '#' },
-	                  'STUDIES'
-	                ),
-	                _react2.default.createElement(
-	                  'ul',
-	                  { className: 'menu vertical nested' },
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      _reactRouter.Link,
-	                      { to: '/studies/1' },
-	                      'FEB STUDY 1'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'li',
-	                    null,
-	                    _react2.default.createElement(
-	                      _reactRouter.Link,
-	                      { to: '/studies/2' },
-	                      'FEB STUDY 2'
-	                    )
-	                  )
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                  'a',
-	                  { href: 'http://www.citylifeboston.org/' },
-	                  _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    'CITYLIFE BOSTON'
-	                  )
-	                )
+	                _reactRouter.Link,
+	                { to: '/' },
+	                'HOME'
 	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row show-for-medium' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'top-bar' },
+	            ),
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'top-bar-left' },
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#' },
+	                'STUDIES'
+	              ),
 	              _react2.default.createElement(
 	                'ul',
-	                { className: 'dropdown menu', 'data-dropdown-menu': true },
+	                { className: 'menu vertical' },
 	                _react2.default.createElement(
 	                  'li',
 	                  null,
 	                  _react2.default.createElement(
 	                    _reactRouter.Link,
-	                    { to: '/' },
-	                    'HOME'
+	                    { to: '/studies/1', className: 'vertical-align-middle' },
+	                    'MARCH STUDY 1'
 	                  )
 	                ),
 	                _react2.default.createElement(
 	                  'li',
 	                  null,
 	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    'STUDIES'
-	                  ),
-	                  _react2.default.createElement(
-	                    'ul',
-	                    { className: 'menu vertical' },
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/studies/1', className: 'vertical-align-middle' },
-	                        'MARCH STUDY 1'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/studies/2', className: 'vertical-align-middle' },
-	                        'MARCH STUDY 2'
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'top-bar-right' },
-	              _react2.default.createElement(
-	                'ul',
-	                { className: 'menu' },
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'http://www.citylifeboston.org/' },
-	                    _react2.default.createElement('img', { id: 'large-logo', src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      'CITYLIFE BOSTON'
-	                    )
+	                    _reactRouter.Link,
+	                    { to: '/studies/2', className: 'vertical-align-middle' },
+	                    'MARCH STUDY 2'
 	                  )
 	                )
 	              )
@@ -25602,96 +25506,132 @@
 	var Letter = function Letter(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'row' },
+	    null,
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'small-3 small-centered columns body-header' },
-	      _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'small-12 small-centered large-8 large-centered columns' },
+	      { className: 'header-wrapper' },
 	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Dear Community Group Member,'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Just recently, I passed out. I fainted. I lost consciousness and dropped to the floor. I was walking around my house and, the next thing I knew, I was waking up trying to figure out where I was. Now, before you get too freaked out, know that I\u2019m ok. There is nothing seriously wrong with my health. Thank God!'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'The thing that weirded me out the most was that I have recently been a bit healthier than I\u2019ve ever been in my adult life. Lately, I\u2019ve been on a mission to get my act together. God has been teaching me that I have to be a steward of the body he\u2019s given me if I want to bring him glory and fully enjoy the life with which he\u2019s blessed me.'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'So you can imagine my surprise when I woke up from my fainting spell. \u201CWhat in the world is going on!?\u201D I thought. Here\u2019s what was going on:'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
+	        'div',
+	        { className: 'row' },
 	        _react2.default.createElement(
-	          'em',
-	          null,
-	          'In my pursuit of physical health, I let some of the foundational pieces of my health slide.'
+	          'div',
+	          { id: 'logo', className: 'small-10 small-centered large-3 large-centered columns' },
+	          _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
 	        )
 	      ),
 	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'In an effort to drop some pounds and get healthier, I actually ended up setting aside some of the necessary ingredients that are foundational to all healthy diets. Think veggies and all the good stuff that they bring into our lives.'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Why do I tell you all this? Because I want you to know that it\u2019s possible for your CG to look like a thriving community, to be an enjoyable group of people with which to spend your time, even to be a place where people are loved deeply and challenged to grow in the faith, and yet lack some of the basic spiritual nutrition that is necessary for a full, healthy communal life.'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'If you\u2019ve been at Citylife for any length of time, you know that we often use the language of \u201Cgospel\u201D and \u201Cgood news.\u201D Perhaps you hear it so much that you\u2019ve started to think \u201COh, I\u2019ve already got that down.\u201D Let me speak from experience: it is possible to ',
+	        'div',
+	        { className: 'row' },
 	        _react2.default.createElement(
-	          'em',
-	          null,
-	          'know'
-	        ),
-	        ' a heck of a lot about nutrition and yet fail to live a nutritious life. In the same way, it is possible to ',
+	          'div',
+	          { id: 'header', className: 'small-centered columns' },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            'CITYLIFE CG STUDIES'
+	          )
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'row' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'small-12 small-centered large-8 large-centered columns' },
 	        _react2.default.createElement(
-	          'em',
+	          'h1',
 	          null,
-	          'know'
+	          'Dear Community Group Member,'
 	        ),
-	        ' a lot about the gospel and fail to live a life that is based upon and shaped by it.'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'These two studies are designed to provide a \u201Cgospel check-up.\u201D They\u2019re designed to help you ask and answer the question: \u201CDo I have the foundational spiritual nutrition I need to live a healthy, sustainable life of faith?\u201D \u201CIs the gospel at the core of my spiritual life?\u201D'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Whatever your answer may be to those questions, my hope is that these two studies will prove helpful as you \u201Cself-diagnose\u201D in the context of community. May your conversations bring you closer to Jesus\u2014the source and sustainer of our spiritual life and health.'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'In and through him,'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Justin Ruddy'
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Just recently, I passed out. I fainted. I lost consciousness and dropped to the floor. I was walking around my house and, the next thing I knew, I was waking up trying to figure out where I was. Now, before you get too freaked out, know that I\u2019m ok. There is nothing seriously wrong with my health. Thank God!'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'The thing that weirded me out the most was that I have recently been a bit healthier than I\u2019ve ever been in my adult life. Lately, I\u2019ve been on a mission to get my act together. God has been teaching me that I have to be a steward of the body he\u2019s given me if I want to bring him glory and fully enjoy the life with which he\u2019s blessed me.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'So you can imagine my surprise when I woke up from my fainting spell. \u201CWhat in the world is going on!?\u201D I thought. Here\u2019s what was going on:'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          _react2.default.createElement(
+	            'em',
+	            null,
+	            'In my pursuit of physical health, I let some of the foundational pieces of my health slide.'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'In an effort to drop some pounds and get healthier, I actually ended up setting aside some of the necessary ingredients that are foundational to all healthy diets. Think veggies and all the good stuff that they bring into our lives.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Why do I tell you all this? Because I want you to know that it\u2019s possible for your CG to look like a thriving community, to be an enjoyable group of people with which to spend your time, even to be a place where people are loved deeply and challenged to grow in the faith, and yet lack some of the basic spiritual nutrition that is necessary for a full, healthy communal life.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'If you\u2019ve been at Citylife for any length of time, you know that we often use the language of \u201Cgospel\u201D and \u201Cgood news.\u201D Perhaps you hear it so much that you\u2019ve started to think \u201COh, I\u2019ve already got that down.\u201D Let me speak from experience: it is possible to ',
+	          _react2.default.createElement(
+	            'em',
+	            null,
+	            'know'
+	          ),
+	          ' a heck of a lot about nutrition and yet fail to live a nutritious life. In the same way, it is possible to ',
+	          _react2.default.createElement(
+	            'em',
+	            null,
+	            'know'
+	          ),
+	          ' a lot about the gospel and fail to live a life that is based upon and shaped by it.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'These two studies are designed to provide a \u201Cgospel check-up.\u201D They\u2019re designed to help you ask and answer the question: \u201CDo I have the foundational spiritual nutrition I need to live a healthy, sustainable life of faith?\u201D \u201CIs the gospel at the core of my spiritual life?\u201D'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Whatever your answer may be to those questions, my hope is that these two studies will prove helpful as you \u201Cself-diagnose\u201D in the context of community. May your conversations bring you closer to Jesus\u2014the source and sustainer of our spiritual life and health.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'In and through him,'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Justin Ruddy'
+	        )
 	      )
 	    )
 	  );
 	};
 
 	exports.default = Letter;
+
+	// <ul className="dropdown menu" data-dropdown-menu>
+	//   <li><Link to={`/`}>HOME</Link></li>
+	//   <li>
+	//     <a href="#">STUDIES</a>
+	//     <ul className="menu vertical">
+	//       <li><Link to={`/studies/1`}>MARCH STUDY 1</Link></li>
+	//       <li><Link to={`/studies/2`}>MARCH STUDY 2</Link></li>
+	//     </ul>
+	//   </li>
+	// </ul>
 
 /***/ },
 /* 226 */
@@ -25885,6 +25825,78 @@
 	};
 
 	exports.default = Study;
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _data = __webpack_require__(227);
+
+	var _data2 = _interopRequireDefault(_data);
+
+	var _Study = __webpack_require__(228);
+
+	var _Study2 = _interopRequireDefault(_Study);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var StudyIndexContainer = function (_Component) {
+	  _inherits(StudyIndexContainer, _Component);
+
+	  function StudyIndexContainer(props) {
+	    _classCallCheck(this, StudyIndexContainer);
+
+	    var _this = _possibleConstructorReturn(this, (StudyIndexContainer.__proto__ || Object.getPrototypeOf(StudyIndexContainer)).call(this, props));
+
+	    _this.state = {
+	      study: {}
+	    };
+	    return _this;
+	  }
+
+	  _createClass(StudyIndexContainer, [{
+	    key: "componentDidMount",
+	    value: function componentDidMount() {
+	      var studyId = this.props.params.id;
+	      var currentStudy = _data2.default.studies.find(function (study) {
+	        return study.id == studyId;
+	      });
+	      this.setState({ study: currentStudy });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(_Study2.default, {
+	        key: this.state.study.id,
+	        id: this.state.study.id,
+	        title: this.state.study.title,
+	        subtitle: this.state.study.subtitle
+	      });
+	    }
+	  }]);
+
+	  return StudyIndexContainer;
+	}(_react.Component);
+
+	exports.default = StudyIndexContainer;
 
 /***/ }
 /******/ ]);

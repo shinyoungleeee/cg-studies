@@ -2,36 +2,31 @@
 
 h1, h2, h3, h4, h5, h6, li {
   font-family: 'Exo', sans-serif;
+  color: #091933;
 }
 
 p {
   font-family: 'Tinos', serif;
+  color: #091933;
 }
 
-.top-bar {
+.header-wrapper {
   margin-bottom: 50px;
+  background: url(images/patrick-tomasso-71909.jpg);
+  background-size: cover;
+  height: 100vh;
 }
 
-#small-logo {
-  height: 50px;
-  margin-right: 5px;
-  filter: invert(100%);
+#logo {
+  margin-top: 2em;
 }
 
-#large-logo {
-  width: 50px;
-  margin-right: 5px;
+#logo img {
+  opacity: 0.8;
 }
 
-.body-header {
-  margin-bottom: 20px;
-}
-
-.body-header img {
-  width: 100%;
-}
-
-.vertical-align-middle {
-  height: 50px;
-  vertical-align: middle;
+#header h1 {
+  color: white;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  font-size: 5em;
 }
