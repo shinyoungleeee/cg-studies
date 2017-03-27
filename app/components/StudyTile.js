@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const StudyTile = (props) => {
   return(
     <div className="study-tile">
-      <p><Link to={`/articles/${props.id}`}>{props.title}</Link></p>
+      <p><Link to={`/studies/${props.id}`}>{props.title}</Link></p>
       <hr/>
     </div>
   )

@@ -20291,11 +20291,11 @@
 
 	var _Letter2 = _interopRequireDefault(_Letter);
 
-	var _StudyIndexContainer = __webpack_require__(229);
+	var _StudyIndexContainer = __webpack_require__(226);
 
 	var _StudyIndexContainer2 = _interopRequireDefault(_StudyIndexContainer);
 
-	var _StudyShowContainer = __webpack_require__(226);
+	var _StudyShowContainer = __webpack_require__(228);
 
 	var _StudyShowContainer2 = _interopRequireDefault(_StudyShowContainer);
 
@@ -20330,7 +20330,7 @@
 	          _reactRouter.Route,
 	          { path: '/studies', component: _Dashboard2.default },
 	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _StudyIndexContainer2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'studies/:id', component: _StudyShowContainer2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: '/studies/:id', component: _StudyShowContainer2.default })
 	        )
 	      );
 	    }
@@ -25412,11 +25412,24 @@
 
 	    var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
 
-	    _this.state = {};
+	    _this.state = {
+	      menu: "hidden"
+	    };
+
+	    _this.handleMenuClick = _this.handleMenuClick.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(Dashboard, [{
+	    key: 'handleMenuClick',
+	    value: function handleMenuClick(event) {
+	      if (this.state.menu === "hidden") {
+	        this.setState({ menu: "" });
+	      } else {
+	        this.setState({ menu: "hidden" });
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -25424,58 +25437,94 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'header text-center' },
+	          null,
 	          _react2.default.createElement(
 	            'div',
-	            { id: 'logo' },
-	            _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
+	            { className: 'show-for-small-only mobile-menu', onClick: this.handleMenuClick },
+	            _react2.default.createElement('img', { id: 'small-logo', src: 'images/logoletter_72dpi_forweb.png', alt: 'citylife logo' }),
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'M E N U'
+	            )
 	          ),
 	          _react2.default.createElement(
-	            'ul',
-	            { className: 'dropdown menu', 'data-dropdown-menu': true },
+	            'div',
+	            { className: "small-navigation " + this.state.menu },
 	            _react2.default.createElement(
-	              'li',
+	              'ul',
 	              null,
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/' },
+	                  'HOME'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/studies' },
+	                  'STUDIES'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: 'citylifeboston.org' },
+	                  'CITYLIFE BOSTON'
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'show-for-medium large-navigation' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'large-nav-left' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: '/' },
 	                'HOME'
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/studies' },
+	                'STUDIES'
 	              )
 	            ),
 	            _react2.default.createElement(
-	              'li',
-	              null,
+	              'div',
+	              { className: 'large-nav-middle' },
+	              _react2.default.createElement(
+	                'h1',
+	                null,
+	                'CITYLIFE CG STUDIES'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'large-nav-right' },
 	              _react2.default.createElement(
 	                'a',
-	                { href: '#' },
-	                'STUDIES'
-	              ),
-	              _react2.default.createElement(
-	                'ul',
-	                { className: 'menu vertical' },
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: '/studies/1', className: 'vertical-align-middle' },
-	                    'MARCH STUDY 1'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: '/studies/2', className: 'vertical-align-middle' },
-	                    'MARCH STUDY 2'
-	                  )
-	                )
+	                { href: 'citylifeboston.org' },
+	                'CITYLIFE BOSTON'
 	              )
 	            )
 	          )
 	        ),
-	        this.props.children
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'studies' },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -25512,57 +25561,32 @@
 	      { className: 'header-wrapper' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { id: 'logo' },
+	        _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'header' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'small-11 small-centered columns' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'small-7 large-3 columns' },
-	              _react2.default.createElement(
-	                'div',
-	                { id: 'logo' },
-	                _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	              'div',
-	              { id: 'header' },
-	              _react2.default.createElement(
-	                'h1',
-	                null,
-	                'CITYLIFE CG STUDIES'
-	              )
-	            )
-	          )
+	          'h1',
+	          null,
+	          'CITYLIFE CG STUDIES'
 	        )
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'row text-right' },
+	        { className: 'studies-button' },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/studies' },
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'button studies-button' },
+	            { className: 'button' },
 	            'CONTINUE TO STUDIES'
 	          )
 	        )
 	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'down-arrow' },
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('a', { className: 'fa fa-chevron-down fa-3x', href: '#letter' })
-	      )
+	      _react2.default.createElement('a', { className: 'fa fa-chevron-down fa-3x down-arrow', href: '#letter' })
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -25673,6 +25697,132 @@
 /* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _StudyTile = __webpack_require__(227);
+
+	var _StudyTile2 = _interopRequireDefault(_StudyTile);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var StudyIndexContainer = function (_Component) {
+	  _inherits(StudyIndexContainer, _Component);
+
+	  function StudyIndexContainer(props) {
+	    _classCallCheck(this, StudyIndexContainer);
+
+	    var _this = _possibleConstructorReturn(this, (StudyIndexContainer.__proto__ || Object.getPrototypeOf(StudyIndexContainer)).call(this, props));
+
+	    _this.state = {
+	      studies: []
+	    };
+	    return _this;
+	  }
+
+	  _createClass(StudyIndexContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      fetch('/api/v1/studies').then(function (response) {
+	        return response.json();
+	      }).then(function (responseData) {
+	        _this2.setState({ studies: [].concat(_toConsumableArray(_this2.state.studies), _toConsumableArray(responseData.studies)) });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var studies = this.state.studies.map(function (study) {
+	        return _react2.default.createElement(_StudyTile2.default, {
+	          key: study.id,
+	          id: study.id,
+	          title: study.title
+	        });
+	      });
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'small-8 small-centered columns' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'STUDIES'
+	          ),
+	          _react2.default.createElement('hr', null),
+	          studies
+	        )
+	      );
+	    }
+	  }]);
+
+	  return StudyIndexContainer;
+	}(_react.Component);
+
+	exports.default = StudyIndexContainer;
+
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(169);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var StudyTile = function StudyTile(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'study-tile' },
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/studies/' + props.id },
+	        props.title
+	      )
+	    ),
+	    _react2.default.createElement('hr', null)
+	  );
+	};
+
+	exports.default = StudyTile;
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -25685,11 +25835,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _data = __webpack_require__(227);
+	var _data = __webpack_require__(229);
 
 	var _data2 = _interopRequireDefault(_data);
 
-	var _Study = __webpack_require__(228);
+	var _Study = __webpack_require__(230);
 
 	var _Study2 = _interopRequireDefault(_Study);
 
@@ -25742,7 +25892,7 @@
 	exports.default = StudyShowContainer;
 
 /***/ },
-/* 227 */
+/* 229 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -25768,7 +25918,7 @@
 	exports.default = data;
 
 /***/ },
-/* 228 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25861,78 +26011,6 @@
 	};
 
 	exports.default = Study;
-
-/***/ },
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _data = __webpack_require__(227);
-
-	var _data2 = _interopRequireDefault(_data);
-
-	var _Study = __webpack_require__(228);
-
-	var _Study2 = _interopRequireDefault(_Study);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var StudyIndexContainer = function (_Component) {
-	  _inherits(StudyIndexContainer, _Component);
-
-	  function StudyIndexContainer(props) {
-	    _classCallCheck(this, StudyIndexContainer);
-
-	    var _this = _possibleConstructorReturn(this, (StudyIndexContainer.__proto__ || Object.getPrototypeOf(StudyIndexContainer)).call(this, props));
-
-	    _this.state = {
-	      studies: []
-	    };
-	    return _this;
-	  }
-
-	  _createClass(StudyIndexContainer, [{
-	    key: "componentDidMount",
-	    value: function componentDidMount() {
-	      var studyId = this.props.params.id;
-	      var currentStudy = _data2.default.studies.find(function (study) {
-	        return study.id == studyId;
-	      });
-	      this.setState({ study: currentStudy });
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(_Study2.default, {
-	        key: this.state.study.id,
-	        id: this.state.study.id,
-	        title: this.state.study.title,
-	        subtitle: this.state.study.subtitle
-	      });
-	    }
-	  }]);
-
-	  return StudyIndexContainer;
-	}(_react.Component);
-
-	exports.default = StudyIndexContainer;
 
 /***/ }
 /******/ ]);

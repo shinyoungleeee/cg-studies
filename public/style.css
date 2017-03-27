@@ -10,59 +10,164 @@ p {
   color: #091933;
 }
 
+a {
+  font-family: 'Exo', sans-serif;
+  color: #62B8DA;
+}
+
+/* Letter Component */
+
 .header-wrapper {
-  background: url(images/patrick-tomasso-71909.jpg);
+  background: url(images/header-large.jpeg);
   background-size: cover;
   height: 100vh;
-  max-width: 100vw;
+  width: 100vw;
+  padding: 5vh;
 }
 
 #logo {
-  width: 100%;
-  margin-top: 2.5em;
-  margin-bottom: 2.5em;
+  width: 30vh;
 }
 
 #logo img {
+  height: 30vh;
   opacity: 0.8;
 }
 
 #header {
-  margin-bottom: 2.5em;
+  margin-top: 3vh;
 }
 
 #header h1 {
   color: white;
   text-shadow: 0.5px 0.5px 1px #000000;
-  font-size: 3.5em;
+  font-size: 15vmin;
 }
 
 .studies-button {
-  background: #091933;
-  color: white;
+  height: 25vh;
+  position: relative;
+  margin-right: -5vh;
 }
 
-.studies-button:hover {
+.studies-button button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   background: #091933;
   color: white;
+  opacity: 0.6;
+  font-family: 'Exo', sans-serif;
+}
+
+.studies-button button:hover {
+  background: #091933;
+  color: white;
+  opacity: 1;
 }
 
 .down-arrow {
   position: absolute;
-  height: 3em;
-  width: 6em;
-  bottom: 10%;
-  margin-bottom: -1.5em;
-  left: 50%;
-  margin-left: -3em;
-  text-align: center;
-}
-
-.down-arrow a {
+  bottom: 5%;
+  margin-bottom: -24px;
+  right: 50%;
+  margin-right: -24px;
   color: white;
 }
 
 #letter {
-  padding-top: 50px;
-  margin-top: 5px;
+  padding-top: 10vh;
+  margin-top: 1vh;
+}
+
+/* Dashboard Component */
+
+.mobile-menu {
+  width: 100vw;
+  padding: 5vw;
+}
+
+.mobile-menu h2, img {
+  display: inline-block;
+  margin-right: 5vw;
+  margin-bottom: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 7vw;
+  vertical-align: middle;
+}
+
+#small-logo {
+  height: 5vh;
+}
+
+.small-navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background: white;
+}
+
+.small-navigation li a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #091933;
+  margin: 1px 0;
+}
+
+.small-navigation li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.large-navigation, .mobile-menu {
+  background: #967f61;
+}
+
+.large-navigation div, a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.large-navigation a {
+  color: white;
+  padding: 1vh;
+  margin: 1vh;
+  font-size: 2vh;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.large-navigation a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+.large-navigation h1 {
+  color: white;
+}
+
+.large-nav-left {
+  width: 30vw;
+}
+
+.large-nav-middle {
+  width: 40vw;
+  text-align: center;
+}
+
+.large-nav-right {
+  width: 30vw;
+  text-align: right;
+}
+
+.studies {
+  margin-top: 5vh;
 }

@@ -20,7 +20,7 @@ class App extends Component {
         <Route path="/" component={Letter} />
         <Route path="/studies" component={Dashboard}>
           <IndexRoute component={StudyIndexContainer} />
-          <Route path='studies/:id' component={StudyShowContainer} />
+          <Route path='/studies/:id' component={StudyShowContainer} />
         </Route>
       </Router>
     )

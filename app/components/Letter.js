@@ -5,30 +5,18 @@ const Letter = props => {
   return(
     <div>
       <div className="header-wrapper">
-        <div className="row">
-          <div className="small-11 small-centered columns">
-            <div className="row">
-              <div className="small-7 large-3 columns">
-                <div id="logo">
-                  <img src="images/logoletter_72dpi_forweb.png" alt="Citylife Logo"/>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div id="header">
-                <h1>CITYLIFE CG STUDIES</h1>
-              </div>
-            </div>
-          </div>
+        <div id="logo">
+          <img src="images/logoletter_72dpi_forweb.png" alt="Citylife Logo"/>
         </div>
-        <div className="row text-right">
+        <div id="header">
+          <h1>CITYLIFE CG STUDIES</h1>
+        </div>
+        <div className="studies-button">
           <Link to={`/studies`}>
-            <button className="button studies-button">CONTINUE TO STUDIES</button>
+            <button className="button">CONTINUE TO STUDIES</button>
           </Link>
         </div>
-        <div className="down-arrow">
-          <br/><a className="fa fa-chevron-down fa-3x" href="#letter"></a>
-        </div>
+        <a className="fa fa-chevron-down fa-3x down-arrow" href="#letter"></a>
       </div>
       <div className="row">
         <div id="letter" className="small-12 small-centered large-8 large-centered columns">

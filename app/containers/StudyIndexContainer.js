@@ -1,6 +1,5 @@
 import React, { Component }  from 'react';
-import data from "../constants/data";
-import Study from "../components/Study";
+import StudyTile from "../components/StudyTile";
 
 class StudyIndexContainer extends Component {
   constructor(props) {
@@ -11,20 +10,32 @@ class StudyIndexContainer extends Component {
   }
 
   componentDidMount() {
-    let studyId = this.props.params.id;
-    let currentStudy = data.studies.find((study) =>
-      (study.id == studyId)
-    )
-    this.setState({ study: currentStudy })
+    fetch('/api/v1/studies')
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ studies: [...this.state.studies, ...responseData.studies] })
+      })
   }
+
   render() {
+    let studies = this.state.studies.map(study => {
+      return(
+        <StudyTile
+          key={study.id}
+          id={study.id}
+          title={study.title}
+        />
+      )
+    })
+
     return(
-      <Study
-        key={this.state.study.id}
-        id={this.state.study.id}
-        title={this.state.study.title}
-        subtitle={this.state.study.subtitle}
-      />
+      <div className="row">
+        <div className="small-8 small-centered columns">
+          <h2>STUDIES</h2>
+          <hr/>
+          {studies}
+        </div>
+      </div>
     )
   }
 }
