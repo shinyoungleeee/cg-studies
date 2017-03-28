@@ -45,15 +45,16 @@ a {
 }
 
 .studies-button {
-  height: 25vh;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  margin-left: -5vh;
   margin-right: -5vh;
 }
 
 .studies-button button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  width: 100vw;
+  height: 10vh;
+  margin-bottom: 0;
   background: #091933;
   color: white;
   opacity: 0.6;
@@ -63,21 +64,7 @@ a {
 .studies-button button:hover {
   background: #091933;
   color: white;
-  opacity: 1;
-}
-
-.down-arrow {
-  position: absolute;
-  bottom: 5%;
-  margin-bottom: -24px;
-  right: 50%;
-  margin-right: -24px;
-  color: white;
-}
-
-#letter {
-  padding-top: 10vh;
-  margin-top: 1vh;
+  opacity: 0.8;
 }
 
 /* Dashboard Component */

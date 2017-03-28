@@ -25573,127 +25573,33 @@
 	var Letter = function Letter(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'header-wrapper' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'header-wrapper' },
-	      _react2.default.createElement(
-	        'div',
-	        { id: 'logo' },
-	        _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { id: 'header' },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'CITYLIFE CG STUDIES'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'studies-button' },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/studies' },
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'button' },
-	            'CONTINUE TO STUDIES'
-	          )
-	        )
-	      ),
-	      _react2.default.createElement('a', { className: 'fa fa-chevron-down fa-3x down-arrow', href: '#letter' })
+	      { id: 'logo' },
+	      _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'row' },
+	      { id: 'header' },
 	      _react2.default.createElement(
-	        'div',
-	        { id: 'letter', className: 'small-12 small-centered large-8 large-centered columns' },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Dear Community Group Member,'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Just recently, I passed out. I fainted. I lost consciousness and dropped to the floor. I was walking around my house and, the next thing I knew, I was waking up trying to figure out where I was. Now, before you get too freaked out, know that I\u2019m ok. There is nothing seriously wrong with my health. Thank God!'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'The thing that weirded me out the most was that I have recently been a bit healthier than I\u2019ve ever been in my adult life. Lately, I\u2019ve been on a mission to get my act together. God has been teaching me that I have to be a steward of the body he\u2019s given me if I want to bring him glory and fully enjoy the life with which he\u2019s blessed me.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'So you can imagine my surprise when I woke up from my fainting spell. \u201CWhat in the world is going on!?\u201D I thought. Here\u2019s what was going on:'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          _react2.default.createElement(
-	            'em',
-	            null,
-	            'In my pursuit of physical health, I let some of the foundational pieces of my health slide.'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'In an effort to drop some pounds and get healthier, I actually ended up setting aside some of the necessary ingredients that are foundational to all healthy diets. Think veggies and all the good stuff that they bring into our lives.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Why do I tell you all this? Because I want you to know that it\u2019s possible for your CG to look like a thriving community, to be an enjoyable group of people with which to spend your time, even to be a place where people are loved deeply and challenged to grow in the faith, and yet lack some of the basic spiritual nutrition that is necessary for a full, healthy communal life.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'If you\u2019ve been at Citylife for any length of time, you know that we often use the language of \u201Cgospel\u201D and \u201Cgood news.\u201D Perhaps you hear it so much that you\u2019ve started to think \u201COh, I\u2019ve already got that down.\u201D Let me speak from experience: it is possible to ',
-	          _react2.default.createElement(
-	            'em',
-	            null,
-	            'know'
-	          ),
-	          ' a heck of a lot about nutrition and yet fail to live a nutritious life. In the same way, it is possible to ',
-	          _react2.default.createElement(
-	            'em',
-	            null,
-	            'know'
-	          ),
-	          ' a lot about the gospel and fail to live a life that is based upon and shaped by it.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'These two studies are designed to provide a \u201Cgospel check-up.\u201D They\u2019re designed to help you ask and answer the question: \u201CDo I have the foundational spiritual nutrition I need to live a healthy, sustainable life of faith?\u201D \u201CIs the gospel at the core of my spiritual life?\u201D'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Whatever your answer may be to those questions, my hope is that these two studies will prove helpful as you \u201Cself-diagnose\u201D in the context of community. May your conversations bring you closer to Jesus\u2014the source and sustainer of our spiritual life and health.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'In and through him,'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Justin Ruddy'
-	        )
+	        'h1',
+	        null,
+	        'CITYLIFE CG STUDIES'
 	      )
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      null,
-	      'Footer'
+	      { className: 'studies-button' },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/studies' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'button' },
+	          'CONTINUE TO STUDIES'
+	        )
+	      )
 	    )
 	  );
 	};
