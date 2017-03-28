@@ -4,13 +4,47 @@
       "id": 1,
       "title": "Session 1: CG Mission",
       "subtitle": "To Be Gospel-Shaped (1 of 2)",
-      "fileName": "march1"
+      "entries": [
+        {
+          "id": 1,
+          "title": "What is the Gospel?",
+          "body": "If everyone in the room were asked to draw a square, you would end up with some variety, but you would also likely end up with a bunch of drawings that were recognizable as squares. While the \“gospel\” is at the center of the Christian faith, if everyone were asked to draw a picture or offer a summary of the \“gospel,\” you would likely find quite a bit of variety in the room. On the one hand, this variety would represent the unfathomable riches and depth of the gospel. It could never be perfectly summed up! On the other hand, the variety of articulations would likely represent a lot of misunderstandings about what the gospel actually is. Though the gospel can never be summed up in a quippy definition, it is possible to provide an articulation of the gospel that is recognizable as the gospel.\n\nWhat are we going to do now, you ask? We\’re going to try to articulate our personal understandings of the gospel. Fear not! At this stage in the game, there is no wrong answer. We\’re simply trying to approach the gospel together so that we might be better shaped by it! Give one another grace, and refrain from commenting or correcting on other people’s perspectives."
+        },
+        {
+          "id": 2,
+          "title": "1. Take a moment to right down or draw your understanding of the \“gospel.\” Keep in mind that \“gospel\” means \“good news.\”",
+          "note": "This is not a competition! There is no judgment! We are a team working together to better understand and experience the gospel! With that in mind, share what you\’ve put down with the group.",
+          "body": "Here are some of the things that likely came up in your discussions:\n\n1) The world was created good, broken by sin, redeemed by Jesus, and will ultimately be renewed. \n2) If you repent and believe in Jesus you will be saved.\n3) God is in the process of saving the world and we get to be a part of it. \n4) I can live a full, meaningful, pleasing life before God because of Jesus.\n\nNow, all of these are very close to the gospel. #1 is the big story of the world—the gospel is the hinge on which this story turns. #2 is the result of the good news of the gospel. #3 is the way that the gospel works out in the world. #4 is an implication of the gospel. All of these things are true because of the gospel, but none are themselves the gospel."
+        },
+        {
+          "id": 3,
+          "prefix": "What then is the gospel? The gospel is good NEWS!",
+          "title": "2. What is news? What is the nature and character of a news report? What is an example of \“good news\” that you have heard in your lifetime?",
+          "body": "Though our current 24/7 news cycle has come to look more like running commentary than news reporting, at its heart, news is a report about something that has happened in the world which changes things. At the most basic level, “good news” is any report about something that has happened in the world that makes things better. \n\nFundamentally the gospel is “the good news about Jesus.” The gospel is a declarable thing about what Jesus did in history. Timothy Keller sums up this news under three headings (adapted from Chapter 1 of Center Church): \n\nA. The incarnation of Jesus. God himself has come down, taken on a human nature, and become a servant to save us.  (Hebrews 2:14)\n\nB. The crucifixion of Jesus. In Jesus, God substitutes himself for us and, on our behalf, pays the debt, defeats the evil powers, bears the curse and divine wrath, and secures for us a salvation by grace, not by our works. (1 Corinthians 15:3) \n\nC. The resurrection of Jesus. Jesus overcomes the grave, securing for his people new life through the Spirit in the present, life in heaven at death, and life with God in the new heavens and new earth with the people of God in the future. (1 Corinthians 15:4)"
+        }
+      ]
     },
     {
       "id": 2,
       "title": "Session 2: TBD",
       "subtitle": "TBD",
-      "fileName": "march2"
+      "entries": [
+        {
+          "id": 1,
+          "title": "",
+          "body": ""
+        },
+        {
+          "id": 2,
+          "title": "",
+          "body": ""
+        },
+        {
+          "id": 3,
+          "title": "",
+          "body": ""
+        }
+      ]
     }
   ]
 }

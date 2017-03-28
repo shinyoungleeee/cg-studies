@@ -14,16 +14,34 @@ get "/api/v1/studies" do
   json @studies
 end
 
-get "/api/v1/studies/:id" do
+get "/api/v1/studies/:studyId" do
   @studies = read_studies
   study_data = @studies["studies"]
 
   @study = study_data.find do |study|
-    study["id"] == params[:id].to_i
+    study["id"] == params[:studyId].to_i
   end
 
   content_type :json
   json @study
+end
+
+get "/api/v1/studies/:studyId/:entryId" do
+  @studies = read_studies
+  study_data = @studies["studies"]
+
+  @study = study_data.find do |study|
+    study["id"] == params[:studyId].to_i
+  end
+
+  entry_data = @study["entries"]
+
+  @entry = entry_data.find do |entry|
+    entry["id"] == params[:entryId].to_i
+  end
+
+  content_type :json
+  json @entry
 end
 
 get '*' do

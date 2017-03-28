@@ -20299,6 +20299,14 @@
 
 	var _StudyShowContainer2 = _interopRequireDefault(_StudyShowContainer);
 
+	var _Intro = __webpack_require__(231);
+
+	var _Intro2 = _interopRequireDefault(_Intro);
+
+	var _EntryContainer = __webpack_require__(232);
+
+	var _EntryContainer2 = _interopRequireDefault(_EntryContainer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20330,7 +20338,12 @@
 	          _reactRouter.Route,
 	          { path: '/studies', component: _Dashboard2.default },
 	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _StudyIndexContainer2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: '/studies/:id', component: _StudyShowContainer2.default })
+	          _react2.default.createElement(
+	            _reactRouter.Route,
+	            { path: '/studies/:studyId', component: _StudyShowContainer2.default },
+	            _react2.default.createElement(_reactRouter.IndexRoute, { component: _Intro2.default }),
+	            _react2.default.createElement(_reactRouter.Route, { path: '/studies/:studyId/:entryId', component: _EntryContainer2.default })
+	          )
 	        )
 	      );
 	    }
@@ -25524,6 +25537,11 @@
 	          'div',
 	          { className: 'studies' },
 	          this.props.children
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'Footer'
 	        )
 	      );
 	    }
@@ -25823,7 +25841,7 @@
 /* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25834,10 +25852,6 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _data = __webpack_require__(229);
-
-	var _data2 = _interopRequireDefault(_data);
 
 	var _Study = __webpack_require__(230);
 
@@ -25860,29 +25874,43 @@
 	    var _this = _possibleConstructorReturn(this, (StudyShowContainer.__proto__ || Object.getPrototypeOf(StudyShowContainer)).call(this, props));
 
 	    _this.state = {
-	      study: {}
+	      study: {
+	        id: "",
+	        title: "",
+	        subtitle: "",
+	        entries: []
+	      }
 	    };
 	    return _this;
 	  }
 
 	  _createClass(StudyShowContainer, [{
-	    key: "componentDidMount",
+	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var studyId = this.props.params.id;
-	      var currentStudy = _data2.default.studies.find(function (study) {
-	        return study.id == studyId;
+	      var _this2 = this;
+
+	      var studyId = this.props.params.studyId;
+	      fetch('/api/v1/studies/' + studyId).then(function (response) {
+	        return response.json();
+	      }).then(function (responseData) {
+	        _this2.setState({ study: responseData });
 	      });
-	      this.setState({ study: currentStudy });
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(_Study2.default, {
-	        key: this.state.study.id,
-	        id: this.state.study.id,
-	        title: this.state.study.title,
-	        subtitle: this.state.study.subtitle
-	      });
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_Study2.default, {
+	          key: this.state.study.id,
+	          id: this.state.study.id,
+	          title: this.state.study.title,
+	          subtitle: this.state.study.subtitle,
+	          entries: this.state.study.entries
+	        }),
+	        this.props.children
+	      );
 	    }
 	  }]);
 
@@ -25892,32 +25920,7 @@
 	exports.default = StudyShowContainer;
 
 /***/ },
-/* 229 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var data = {
-	  letter: {},
-	  studies: [{
-	    id: 1,
-	    title: "Session 1: CG Mission",
-	    subtitle: "To Be Gospel-Shaped (1 of 2)",
-	    fileName: "march1"
-	  }, {
-	    id: 2,
-	    title: "TBD",
-	    subtitle: "TBD",
-	    fileName: "march2"
-	  }]
-	};
-
-	exports.default = data;
-
-/***/ },
+/* 229 */,
 /* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -25936,12 +25939,25 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Study = function Study(props) {
+	  var entries = props.entries.map(function (entry) {
+	    return _react2.default.createElement(
+	      'li',
+	      null,
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/studies/' + props.id + '/' + entry.id },
+	        'Entry #',
+	        entry.id
+	      )
+	    );
+	  });
+
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'row' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'small-12 small-centered large-8 large-centered columns' },
+	      { className: 'small-12 small-centered columns' },
 	      _react2.default.createElement(
 	        'h1',
 	        null,
@@ -25953,64 +25969,328 @@
 	        props.subtitle
 	      ),
 	      _react2.default.createElement(
-	        'p',
+	        'ul',
 	        null,
-	        'In order for all of our Community Groups to be on the same page\u2014aiming toward the same goal\u2014we\u2019re going to take the next few months to review the foundational stuff that animates us. As a group, walk through these three questions about church. Feel free to offer your own thoughts, but then discuss the answers that have been printed here:',
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'strong',
-	          null,
-	          _react2.default.createElement(
-	            'em',
-	            null,
-	            'Why'
-	          )
-	        ),
-	        ', fundamentally, does the church exist?',
-	        _react2.default.createElement('br', null),
-	        'Because God transforms human beings through the news about Jesus (i.e. the gospel).',
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'strong',
-	          null,
-	          _react2.default.createElement(
-	            'em',
-	            null,
-	            'How'
-	          )
-	        ),
-	        ' does Citylife live out this \u201CWhy\u201D?',
-	        _react2.default.createElement('br', null),
-	        'Together, we shape our lives to display the life-transforming news about Jesus.',
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'strong',
-	          null,
-	          _react2.default.createElement(
-	            'em',
-	            null,
-	            'What'
-	          )
-	        ),
-	        ' does this end up looking like?',
-	        _react2.default.createElement('br', null),
-	        'Mission! When, together, we shape our lives to display the life-transforming news about Jesus, we end up becoming \u201Ca gospel-shaped community for the city.\u201D',
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
-	        'This is Citylife Church\u2019s \u201CMacro\u201D Mission: \u201Cto be a gospel-shaped community for the city.\u201D',
-	        _react2.default.createElement('br', null),
-	        'Every Community Group mirrors this on a \u201CMicro\u201D level...'
+	        entries
 	      )
 	    )
 	  );
 	};
 
 	exports.default = Study;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Intro = function Intro(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "div",
+	      { className: "row" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "small-12 small-centered columns" },
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "In order for all of our Community Groups to be on the same page\u2014aiming toward the same goal\u2014we\u2019re going to take the next few months to review the foundational stuff that animates us. As a group, walk through these three questions about church. Feel free to offer your own thoughts, but then discuss the answers that have been printed here:",
+	          _react2.default.createElement("br", null)
+	        ),
+	        _react2.default.createElement(
+	          "blockquote",
+	          null,
+	          _react2.default.createElement(
+	            "strong",
+	            null,
+	            _react2.default.createElement(
+	              "em",
+	              null,
+	              "Why"
+	            )
+	          ),
+	          ", fundamentally, does the church exist?",
+	          _react2.default.createElement("br", null),
+	          "Because God transforms human beings through the news about Jesus (i.e. the gospel).",
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement(
+	            "strong",
+	            null,
+	            _react2.default.createElement(
+	              "em",
+	              null,
+	              "How"
+	            )
+	          ),
+	          " does Citylife live out this \u201CWhy\u201D?",
+	          _react2.default.createElement("br", null),
+	          "Together, we shape our lives to display the life-transforming news about Jesus.",
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement(
+	            "strong",
+	            null,
+	            _react2.default.createElement(
+	              "em",
+	              null,
+	              "What"
+	            )
+	          ),
+	          " does this end up looking like?",
+	          _react2.default.createElement("br", null),
+	          "Mission! When, together, we shape our lives to display the life-transforming news about Jesus, we end up becoming \u201Ca gospel-shaped community for the city.\u201D"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "This is Citylife Church\u2019s \u201CMacro\u201D Mission: \u201Cto be a gospel-shaped community for the city.\u201D",
+	          _react2.default.createElement("br", null),
+	          "Every Community Group mirrors this on a \u201CMicro\u201D level..."
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "row text-center" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "small-3 small-centered columns" },
+	        _react2.default.createElement("hr", null)
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "row" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "small-12 small-centered columns" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "text-center" },
+	          _react2.default.createElement(
+	            "h3",
+	            null,
+	            "Each Community Group Has the Mission:"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            _react2.default.createElement("br", null),
+	            _react2.default.createElement(
+	              "strong",
+	              null,
+	              "To Be a Gospel-Shaped",
+	              _react2.default.createElement("br", null),
+	              "Community of Jesus Followers",
+	              _react2.default.createElement("br", null),
+	              "For Our Neighborhood"
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "The very structure that aim for as CGs revolves around this mission:",
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("br", null),
+	          "Monthly Rhythm:"
+	        ),
+	        _react2.default.createElement(
+	          "ul",
+	          null,
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "Two weeks exploring God\u2019s Word (Gospel-Shaped)"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "One week enjoying life together (Community of Jesus Followers)"
+	          ),
+	          _react2.default.createElement(
+	            "li",
+	            null,
+	            "One week serving our community (For Our Neighborhood)"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "These two studies are going to focus in on the first aspect of our CG Mission (i.e. to be \u201Cgospel-shaped\u201D). Use this study to diagnose the health of your CG as it relates to the good news."
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = Intro;
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Entry = __webpack_require__(234);
+
+	var _Entry2 = _interopRequireDefault(_Entry);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EntryContainer = function (_Component) {
+	  _inherits(EntryContainer, _Component);
+
+	  function EntryContainer(props) {
+	    _classCallCheck(this, EntryContainer);
+
+	    var _this = _possibleConstructorReturn(this, (EntryContainer.__proto__ || Object.getPrototypeOf(EntryContainer)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(EntryContainer, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_Entry2.default, {
+	        key: this.props.params.entryId,
+	        studyId: this.props.params.studyId,
+	        entryId: this.props.params.entryId
+	      });
+	    }
+	  }]);
+
+	  return EntryContainer;
+	}(_react.Component);
+
+	exports.default = EntryContainer;
+
+/***/ },
+/* 233 */,
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(169);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Entry = function (_React$Component) {
+	  _inherits(Entry, _React$Component);
+
+	  function Entry(props) {
+	    _classCallCheck(this, Entry);
+
+	    var _this = _possibleConstructorReturn(this, (Entry.__proto__ || Object.getPrototypeOf(Entry)).call(this, props));
+
+	    _this.state = {
+	      entry: {
+	        id: "",
+	        title: "",
+	        body: ""
+	      }
+	    };
+	    return _this;
+	  }
+
+	  _createClass(Entry, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      var studyId = this.props.studyId;
+	      var entryId = this.props.entryId;
+	      fetch('/api/v1/studies/' + studyId + '/' + entryId).then(function (response) {
+	        return response.json();
+	      }).then(function (responseData) {
+	        _this2.setState({ entry: responseData });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var body = this.state.entry.body.split(/(?:\r\n|\r|\n)/g);
+	      var bodyHTML = body.map(function (line) {
+	        return _react2.default.createElement(
+	          'p',
+	          null,
+	          line,
+	          _react2.default.createElement('br', null)
+	        );
+	      });
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'small-12 small-centered columns' },
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            this.state.entry.title
+	          ),
+	          bodyHTML
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Entry;
+	}(_react2.default.Component);
+
+	exports.default = Entry;
 
 /***/ }
 /******/ ]);

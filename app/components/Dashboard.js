@@ -51,6 +51,9 @@ class Dashboard extends Component{
         <div className="studies">
           {this.props.children}
         </div>
+        <div>
+          Footer
+        </div>
       </div>
     )
   }

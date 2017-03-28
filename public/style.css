@@ -1,11 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Exo|Tinos);
 
-h1, h2, h3, h4, h5, h6, li {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Exo', sans-serif;
   color: #091933;
 }
 
-p {
+p, blockquote, li {
   font-family: 'Tinos', serif;
   color: #091933;
 }
