@@ -31,7 +31,7 @@ class Dashboard extends Component{
             <ul>
               <li><Link to={`/`}>HOME</Link></li>
               <li><Link to={`/studies`}>STUDIES</Link></li>
-              <li><a href="citylifeboston.org">CITYLIFE BOSTON</a></li>
+              <li><a href="http://www.citylifeboston.org">CITYLIFE BOSTON</a></li>
             </ul>
           </div>
 
@@ -44,7 +44,7 @@ class Dashboard extends Component{
               <h1>CITYLIFE CG STUDIES</h1>
             </div>
             <div className="large-nav-right">
-              <a href="citylifeboston.org">CITYLIFE BOSTON</a>
+              <a href="http://www.citylifeboston.org">CITYLIFE BOSTON</a>
             </div>
           </div>
         </div>

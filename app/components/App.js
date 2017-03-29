@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import Dashboard from './Dashboard';
-import Letter from './Letter';
+import LandingPage from './LandingPage';
 import StudyIndexContainer from '../containers/StudyIndexContainer';
 import StudyShowContainer from '../containers/StudyShowContainer';
 import Intro from '../components/Intro'
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return(
       <Router history={browserHistory}>
-        <Route path="/" component={Letter} />
+        <Route path="/" component={LandingPage} />
         <Route path="/studies" component={Dashboard}>
           <IndexRoute component={StudyIndexContainer} />
           <Route path='/studies/:studyId' component={StudyShowContainer}>

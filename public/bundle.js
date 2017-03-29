@@ -20287,9 +20287,9 @@
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Letter = __webpack_require__(225);
+	var _LandingPage = __webpack_require__(235);
 
-	var _Letter2 = _interopRequireDefault(_Letter);
+	var _LandingPage2 = _interopRequireDefault(_LandingPage);
 
 	var _StudyIndexContainer = __webpack_require__(226);
 
@@ -20333,7 +20333,7 @@
 	      return _react2.default.createElement(
 	        _reactRouter.Router,
 	        { history: _reactRouter.browserHistory },
-	        _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Letter2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/', component: _LandingPage2.default }),
 	        _react2.default.createElement(
 	          _reactRouter.Route,
 	          { path: '/studies', component: _Dashboard2.default },
@@ -25490,7 +25490,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  'a',
-	                  { href: 'citylifeboston.org' },
+	                  { href: 'http://www.citylifeboston.org' },
 	                  'CITYLIFE BOSTON'
 	                )
 	              )
@@ -25527,7 +25527,7 @@
 	              { className: 'large-nav-right' },
 	              _react2.default.createElement(
 	                'a',
-	                { href: 'citylifeboston.org' },
+	                { href: 'http://www.citylifeboston.org' },
 	                'CITYLIFE BOSTON'
 	              )
 	            )
@@ -25553,71 +25553,7 @@
 	exports.default = Dashboard;
 
 /***/ },
-/* 225 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(169);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Letter = function Letter(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'header-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { id: 'logo' },
-	      _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { id: 'header' },
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'CITYLIFE CG STUDIES'
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'studies-button' },
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/studies' },
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'button' },
-	          'CONTINUE TO STUDIES'
-	        )
-	      )
-	    )
-	  );
-	};
-
-	exports.default = Letter;
-
-	// <ul className="dropdown menu" data-dropdown-menu>
-	//   <li><Link to={`/`}>HOME</Link></li>
-	//   <li>
-	//     <a href="#">STUDIES</a>
-	//     <ul className="menu vertical">
-	//       <li><Link to={`/studies/1`}>MARCH STUDY 1</Link></li>
-	//       <li><Link to={`/studies/2`}>MARCH STUDY 2</Link></li>
-	//     </ul>
-	//   </li>
-	// </ul>
-
-/***/ },
+/* 225 */,
 /* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26197,6 +26133,60 @@
 	}(_react2.default.Component);
 
 	exports.default = Entry;
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(169);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LandingPage = function LandingPage(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'header-wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { id: 'logo' },
+	      _react2.default.createElement('img', { src: 'images/logoletter_72dpi_forweb.png', alt: 'Citylife Logo' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { id: 'header' },
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'CITYLIFE CG STUDIES'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'studies-button' },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/studies' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'button' },
+	          'CONTINUE TO STUDIES'
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = LandingPage;
 
 /***/ }
 /******/ ]);
